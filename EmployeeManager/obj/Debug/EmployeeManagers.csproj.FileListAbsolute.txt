@@ -1,0 +1,6 @@
+C:\Users\Users\Desktop\ConsoleApp\EmployeeManager\bin\Debug\EmployeeManager.dll
+C:\Users\Users\Desktop\ConsoleApp\EmployeeManager\bin\Debug\EmployeeManager.pdb
+C:\Users\Users\Desktop\ConsoleApp\EmployeeManager\obj\Debug\EmployeeManagers.csprojResolveAssemblyReference.cache
+C:\Users\Users\Desktop\ConsoleApp\EmployeeManager\obj\Debug\EmployeeManagers.csproj.CoreCompileInputs.cache
+C:\Users\Users\Desktop\ConsoleApp\EmployeeManager\obj\Debug\EmployeeManager.dll
+C:\Users\Users\Desktop\ConsoleApp\EmployeeManager\obj\Debug\EmployeeManager.pdb

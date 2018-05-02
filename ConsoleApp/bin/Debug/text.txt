@@ -1,0 +1,4 @@
+Staszek,Bizon,33
+qq,qq,11
+Paulina,Zielinska,102
+Katarzyna,Zielinska,100
