@@ -17,12 +17,13 @@ namespace ConsoleApp
             StreamReader sr = new StreamReader("text.txt");
             while ((line = sr.ReadLine()) != null)
             {
-                Employee emp = new Employee();
                 string[] temp = line.Split(znak);
 
-                emp.FirstName = temp[0];
-                emp.LastName = temp[1];
-                emp.Age = int.Parse(temp[2]);
+                string firstName = temp[0];
+                string lastName = temp[1];
+                int age = int.Parse(temp[2]);
+
+                Employee emp = new Employee(firstName, lastName, age);
                 emplManager.Add(emp);
             }
             sr.Close();

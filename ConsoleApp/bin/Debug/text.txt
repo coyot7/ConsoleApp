@@ -1,5 +1,4 @@
-Grazyna,Nowak,10
-Katarzyna,Zielinska,100
-Mieczyslaw,Zelent,20
 Mieczyslaw, Fog, 12
 Agnieszka,Zielinska,33
+Zielinska,Magda,23
+Krzysztof,Tomiak,23

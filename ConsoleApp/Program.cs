@@ -48,15 +48,15 @@ namespace ConsoleApp
                     case ConsoleKey.D2:
                         {
                             Console.Clear();
-                            Employee empl = new Employee();
 
                             Console.WriteLine("Podaj imie: ");
-                            empl.FirstName = Console.ReadLine();
+                            string firstName = Console.ReadLine();
                             Console.WriteLine("Podaj nazwisko: ");
-                            empl.LastName = Console.ReadLine();
+                            string lastName = Console.ReadLine();
                             Console.WriteLine("Podaj wiek: ");
-                            empl.Age = int.Parse(Console.ReadLine());
+                            int age = int.Parse(Console.ReadLine());
 
+                            Employee empl = new Employee(firstName, lastName, age);
                             rw.Save(empl);
                            
                         }
@@ -68,14 +68,14 @@ namespace ConsoleApp
                             Console.WriteLine("Podaj index rekordu do zmiany: ");
                             int index = int.Parse(Console.ReadLine());
 
-                            Employee empl = new Employee();
-
                             Console.WriteLine("Podaj imie: ");
-                            empl.FirstName = Console.ReadLine();
+                            string firstName = Console.ReadLine();
                             Console.WriteLine("Podaj nazwisko: ");
-                            empl.LastName = Console.ReadLine();
+                            string lastName = Console.ReadLine();
                             Console.WriteLine("Podaj wiek: ");
-                            empl.Age = int.Parse(Console.ReadLine());
+                            int age = int.Parse(Console.ReadLine());
+                            Employee empl = new Employee(firstName, lastName, age);
+
                             rw.Modification(index, empl);
                         }
                         break;

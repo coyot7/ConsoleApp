@@ -12,9 +12,9 @@ namespace EmployeeManagers
         private string lastName;
         private int age;
 
-        public string FirstName { get => firstName; set => firstName = value; }
-        public string LastName { get => lastName; set => lastName = value; }
-        public int Age { get => age; set => age = value; }
+        public string FirstName { get => firstName; private set => firstName = value; }
+        public string LastName { get => lastName; private set => lastName = value; }
+        public int Age { get => age; private set => age = value; }
 
         public Employee()
         { }
