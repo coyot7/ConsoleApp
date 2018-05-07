@@ -10,35 +10,6 @@ namespace ConsoleApp
 {
     public class ReadWrite
     {
-        public EmployeeManager Load(EmployeeManager emplManager)
-        {
-            string line;
-            char znak = ',';
-            StreamReader sr = new StreamReader("text.txt");
-            while ((line = sr.ReadLine()) != null)
-            {
-                string[] temp = line.Split(znak);
-
-                string firstName = temp[0];
-                string lastName = temp[1];
-                int age = int.Parse(temp[2]);
-
-                Employee emp = new Employee(firstName, lastName, age);
-                emplManager.Add(emp);
-            }
-            sr.Close();
-
-            return emplManager;
-        }
-
-        public void Save(Employee empl)
-        {
-            StreamWriter sw;
-            sw = File.AppendText("text.txt");
-            sw.WriteLine($"{empl.FirstName},{empl.LastName},{empl.Age}");
-            sw.Close();
-        }
-
         public void Delete(int indexLine)
         {
             var file = new List<string>(System.IO.File.ReadAllLines("text.txt"));

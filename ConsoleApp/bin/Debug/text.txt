@@ -1,4 +1,5 @@
-Mieczyslaw, Fog, 12
-Agnieszka,Zielinska,33
-Zielinska,Magda,23
-Krzysztof,Tomiak,23
+Basia,Stonoga,112
+Ula,Tomiak,12
+Luki,Tomiak,11
+Zenon,Kowalski,23
+Anna,Psiabuda,34

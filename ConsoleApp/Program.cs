@@ -11,11 +11,20 @@ namespace ConsoleApp
     {
         static void Main(string[] args)
         {
-            EmployeeManager emplManager = new EmployeeManager();
-            ReadWrite rw = new ReadWrite();
-            emplManager = rw.Load(emplManager);
+            const string fileName = "text.txt";
 
+            EmployeeManager emplManager = new EmployeeManager();
             
+            //2do do wywalenia ta linia nizej jak przeniesiesz ReadWrite
+            ReadWrite rw = new ReadWrite();
+
+            EmployeeSerializer es = new EmployeeSerializer();
+            es.Load(ref emplManager, fileName);
+
+            //2do do wywalenia ta linia nizej jak przeniesiesz ReadWrite
+            //emplManager = rw.Load(emplManager);
+
+
             ConsoleKeyInfo cki;
             bool exit = false;
 
@@ -37,7 +46,10 @@ namespace ConsoleApp
                         {
                             Console.Clear();
                             emplManager = new EmployeeManager();
-                            emplManager = rw.Load(emplManager);
+
+                            //2do do wywalenia ta linia nizej jak przeniesiesz ReadWrite
+                            //emplManager = rw.Load(emplManager);
+                            es.Load(ref emplManager, fileName);
                             emplManager.Show();
                             Console.WriteLine("");
                             Console.WriteLine("Wcisnij dowolny klawisz: ");
@@ -57,7 +69,9 @@ namespace ConsoleApp
                             int age = int.Parse(Console.ReadLine());
 
                             Employee empl = new Employee(firstName, lastName, age);
-                            rw.Save(empl);
+                            //2do do wywalenia ta linia nizej jak przeniesiesz ReadWrite
+                            //rw.Save(empl);
+                            es.Save(empl, fileName);
                            
                         }
                         break;
@@ -94,7 +108,9 @@ namespace ConsoleApp
                         {
                             Console.Clear();
                             emplManager = new EmployeeManager();
-                            emplManager = rw.Load(emplManager);
+                            //2do do wywalenia ta linia nizej jak przeniesiesz ReadWrite
+                            //emplManager = rw.Load(emplManager);
+                            es.Load(ref emplManager, fileName);
                             Console.WriteLine("Wprowadz szukany ciag: ");
                             string searchString = Console.ReadLine();
 
