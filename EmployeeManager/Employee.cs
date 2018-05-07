@@ -8,10 +8,13 @@ namespace EmployeeManagers
 {
     public class Employee
     {
-        private
-            string firstName;
-            string lastName;
-            int age;
+        private string firstName;
+        private string lastName;
+        private int age;
+
+        public string FirstName { get => firstName; set => firstName = value; }
+        public string LastName { get => lastName; set => lastName = value; }
+        public int Age { get => age; set => age = value; }
 
         public Employee()
         { }
@@ -21,13 +24,6 @@ namespace EmployeeManagers
             this.firstName = firstName;
             this.lastName = lastName;
             this.age = age;
-            }
-
-        public string getFirstName() { return firstName; }
-        public void setFirstName(string value) { firstName = value; }
-        public string getLastName() { return lastName; }
-        public void setLastName(string value) { lastName = value; }
-        public int getAge() { return age; }
-        public void setAge(int value) { age = value; }
+        }
     }
 }

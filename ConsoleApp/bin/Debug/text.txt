@@ -1,4 +1,5 @@
-Staszek,Bizon,33
-qq,qq,11
-Paulina,Zielinska,102
+Grazyna,Nowak,10
 Katarzyna,Zielinska,100
+Mieczyslaw,Zelent,20
+Mieczyslaw, Fog, 12
+Agnieszka,Zielinska,33

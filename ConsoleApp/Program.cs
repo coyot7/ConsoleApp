@@ -13,11 +13,9 @@ namespace ConsoleApp
         {
             EmployeeManager emplManager = new EmployeeManager();
             ReadWrite rw = new ReadWrite();
-            emplManager = rw.load(emplManager);
+            emplManager = rw.Load(emplManager);
 
-            //emplManager.wypelnij();
-            //emplManager.show();
-
+            
             ConsoleKeyInfo cki;
             bool exit = false;
 
@@ -39,8 +37,8 @@ namespace ConsoleApp
                         {
                             Console.Clear();
                             emplManager = new EmployeeManager();
-                            emplManager = rw.load(emplManager);
-                            emplManager.show();
+                            emplManager = rw.Load(emplManager);
+                            emplManager.Show();
                             Console.WriteLine("");
                             Console.WriteLine("Wcisnij dowolny klawisz: ");
                             Console.ReadLine();
@@ -53,14 +51,13 @@ namespace ConsoleApp
                             Employee empl = new Employee();
 
                             Console.WriteLine("Podaj imie: ");
-                            empl.setFirstName(Console.ReadLine());
+                            empl.FirstName = Console.ReadLine();
                             Console.WriteLine("Podaj nazwisko: ");
-                            empl.setLastName(Console.ReadLine());
+                            empl.LastName = Console.ReadLine();
                             Console.WriteLine("Podaj wiek: ");
-                            empl.setAge(int.Parse(Console.ReadLine()));
+                            empl.Age = int.Parse(Console.ReadLine());
 
-                            // emplManager.add(empl);
-                            rw.save(empl);
+                            rw.Save(empl);
                            
                         }
                         break;
@@ -74,14 +71,12 @@ namespace ConsoleApp
                             Employee empl = new Employee();
 
                             Console.WriteLine("Podaj imie: ");
-                            empl.setFirstName(Console.ReadLine());
+                            empl.FirstName = Console.ReadLine();
                             Console.WriteLine("Podaj nazwisko: ");
-                            empl.setLastName(Console.ReadLine());
+                            empl.LastName = Console.ReadLine();
                             Console.WriteLine("Podaj wiek: ");
-                            empl.setAge(int.Parse(Console.ReadLine()));
-
-                            //emplManager.modification(empl, index);
-                            rw.modification(index, empl);
+                            empl.Age = int.Parse(Console.ReadLine());
+                            rw.Modification(index, empl);
                         }
                         break;
 
@@ -91,8 +86,7 @@ namespace ConsoleApp
                             Console.WriteLine("Podaj index rekordu do usuniecia: ");
                             int index = int.Parse(Console.ReadLine());
 
-                            rw.delete(index - 1);
-                            //emplManager.remove(index);
+                            rw.Delete(index - 1);
                         }
                         break;
 
@@ -100,16 +94,16 @@ namespace ConsoleApp
                         {
                             Console.Clear();
                             emplManager = new EmployeeManager();
-                            emplManager = rw.load(emplManager);
+                            emplManager = rw.Load(emplManager);
                             Console.WriteLine("Wprowadz szukany ciag: ");
                             string searchString = Console.ReadLine();
 
-                            bool[] tablica = emplManager.searchString(searchString);
+                            bool[] tablica = emplManager.SearchString(searchString);
                             for (int i = 0; i < tablica.Length; i++)
                             {
                                 if (tablica[i] == true)
                                 {
-                                    emplManager.showOne(i);
+                                    emplManager.ShowOne(i);
                                 }
                             }
                             Console.WriteLine("");
@@ -126,7 +120,6 @@ namespace ConsoleApp
             } while (cki.Key != ConsoleKey.Q && exit != true);
 
             Console.Clear();
-            //Console.ReadLine();
         }
     }
 }

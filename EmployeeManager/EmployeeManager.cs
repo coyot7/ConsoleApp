@@ -8,53 +8,34 @@ namespace EmployeeManagers
 {
     public class EmployeeManager
     {
-        private
-            //Employee empl = new Employee("Staszek", "Bizon", 33);
-        List<Employee> listEmpl;// = new List<Employee>();
+        private List<Employee> listEmpl;
 
         public EmployeeManager()
         {
             listEmpl = new List<Employee>();
         }
 
-        public void show()
+        public void Show()
         {
-            //Console.WriteLine("{0}, {1}, {2}", empl.getFirstName(), empl.getLastName(), empl.getAge());
             int i = 0;
             foreach (Employee element in listEmpl)
             {
                 i++;
-                Console.WriteLine("{0}. {1}, {2}, {3}", i, element.getFirstName(), element.getLastName(), element.getAge());
+                Console.WriteLine($"{i}. {element.FirstName}, {element.LastName}, {element.Age}");
             }
         }
 
-        public void showOne(int index)
+        public void ShowOne(int index)
         {
-            Console.WriteLine("{0}. {1}, {2}, {3}", index + 1, listEmpl.ElementAt(index).getFirstName(), listEmpl.ElementAt(index).getLastName(), listEmpl.ElementAt(index).getAge());
+            Console.WriteLine($"{index + 1}. {listEmpl.ElementAt(index).FirstName}, {listEmpl.ElementAt(index).LastName}, {listEmpl.ElementAt(index).Age}");
         }
 
-        public void add(Employee item)
+        public void Add(Employee item)
         {
             listEmpl.Add(item);
         }
 
-        public void modification(Employee item, int index)
-        {
-            listEmpl.RemoveAt(index - 1);
-            listEmpl.Insert(index - 1, item);
-        }
-
-        public void remove(int index)
-        {
-            listEmpl.RemoveAt(index - 1);
-        }
-
-        public int getCountIndex()
-        {
-            return listEmpl.Count;
-        }
-
-        public bool[] searchString(string value)
+        public bool[] SearchString(string value)
         {
             bool[] tablica = new bool[listEmpl.Count];
             for (int i = 0; i < tablica.Length; i++)
@@ -65,7 +46,7 @@ namespace EmployeeManagers
             int j = 0;
             foreach (Employee elemnt in listEmpl)
             {
-                if (elemnt.getFirstName().Equals(value) || elemnt.getLastName().Equals(value))
+                if (elemnt.FirstName.Equals(value) || elemnt.LastName.Equals(value))
                 {
                     tablica[j] = true;
                 }
