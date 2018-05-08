@@ -15,15 +15,8 @@ namespace ConsoleApp
 
             EmployeeManager emplManager = new EmployeeManager();
             
-            //2do do wywalenia ta linia nizej jak przeniesiesz ReadWrite
-            ReadWrite rw = new ReadWrite();
-
             EmployeeSerializer es = new EmployeeSerializer();
             es.Load(ref emplManager, fileName);
-
-            //2do do wywalenia ta linia nizej jak przeniesiesz ReadWrite
-            //emplManager = rw.Load(emplManager);
-
 
             ConsoleKeyInfo cki;
             bool exit = false;
@@ -47,8 +40,6 @@ namespace ConsoleApp
                             Console.Clear();
                             emplManager = new EmployeeManager();
 
-                            //2do do wywalenia ta linia nizej jak przeniesiesz ReadWrite
-                            //emplManager = rw.Load(emplManager);
                             es.Load(ref emplManager, fileName);
                             emplManager.Show();
                             Console.WriteLine("");
@@ -69,8 +60,6 @@ namespace ConsoleApp
                             int age = int.Parse(Console.ReadLine());
 
                             Employee empl = new Employee(firstName, lastName, age);
-                            //2do do wywalenia ta linia nizej jak przeniesiesz ReadWrite
-                            //rw.Save(empl);
                             es.Save(empl, fileName);
                            
                         }
@@ -90,7 +79,7 @@ namespace ConsoleApp
                             int age = int.Parse(Console.ReadLine());
                             Employee empl = new Employee(firstName, lastName, age);
 
-                            rw.Modification(index, empl);
+                            emplManager.Overwrite(index, empl);
                         }
                         break;
 
@@ -100,7 +89,7 @@ namespace ConsoleApp
                             Console.WriteLine("Podaj index rekordu do usuniecia: ");
                             int index = int.Parse(Console.ReadLine());
 
-                            rw.Delete(index - 1);
+                            emplManager.Delete(index - 1);
                         }
                         break;
 
@@ -108,8 +97,6 @@ namespace ConsoleApp
                         {
                             Console.Clear();
                             emplManager = new EmployeeManager();
-                            //2do do wywalenia ta linia nizej jak przeniesiesz ReadWrite
-                            //emplManager = rw.Load(emplManager);
                             es.Load(ref emplManager, fileName);
                             Console.WriteLine("Wprowadz szukany ciag: ");
                             string searchString = Console.ReadLine();
