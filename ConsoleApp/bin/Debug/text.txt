@@ -1,4 +1,6 @@
-Luki,Tomiak,11
-Zenon,Kowalski,23
-Anna,Psiabuda,34
-Grzegorz,Tomiak,21
+Stefan,Batory,33
+Leszek,Zimny,65
+Jablko,Banan,77
+Jezyk,Wolny,24
+Jan,Kowalski,11
+Anna,Kotek,23

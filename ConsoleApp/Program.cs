@@ -41,7 +41,8 @@ namespace ConsoleApp
                             emplManager = new EmployeeManager();
 
                             es.Load(ref emplManager, fileName);
-                            emplManager.Show();
+                            Logger log = new Logger(emplManager);
+                            log.Display();
                             Console.WriteLine("");
                             Console.WriteLine("Wcisnij dowolny klawisz: ");
                             Console.ReadLine();
@@ -60,8 +61,7 @@ namespace ConsoleApp
                             int age = int.Parse(Console.ReadLine());
 
                             Employee empl = new Employee(firstName, lastName, age);
-                            es.Save(empl, fileName);
-                           
+                            es.Add(empl, fileName);
                         }
                         break;
 
@@ -79,7 +79,9 @@ namespace ConsoleApp
                             int age = int.Parse(Console.ReadLine());
                             Employee empl = new Employee(firstName, lastName, age);
 
-                            emplManager.Overwrite(index, empl);
+                            emplManager.ListEmpl.RemoveAt(index - 1);
+                            emplManager.ListEmpl.Insert(index - 1, empl);
+                            es.Save(emplManager, fileName);
                         }
                         break;
 
@@ -89,7 +91,9 @@ namespace ConsoleApp
                             Console.WriteLine("Podaj index rekordu do usuniecia: ");
                             int index = int.Parse(Console.ReadLine());
 
-                            emplManager.Delete(index - 1);
+                            //emplManager.Delete(index - 1);
+                            emplManager.ListEmpl.RemoveAt(index - 1);
+                            es.Save(emplManager, fileName);
                         }
                         break;
 
@@ -101,13 +105,14 @@ namespace ConsoleApp
                             Console.WriteLine("Wprowadz szukany ciag: ");
                             string searchString = Console.ReadLine();
 
-                            bool[] tablica = emplManager.SearchString(searchString);
-                            for (int i = 0; i < tablica.Length; i++)
+                            EmployeeManager serchingString;
+                            serchingString = emplManager.SearchString(searchString);
+
+                            int i = 1;
+                            foreach (Employee element in serchingString.ListEmpl)
                             {
-                                if (tablica[i] == true)
-                                {
-                                    emplManager.ShowOne(i);
-                                }
+                                Console.WriteLine($"{i}. {element.FirstName}, {element.LastName}, {element.Age}");
+                                i++;
                             }
                             Console.WriteLine("");
                             Console.WriteLine("Wcisnij dowolny klawisz: ");

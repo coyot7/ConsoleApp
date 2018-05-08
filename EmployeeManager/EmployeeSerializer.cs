@@ -31,12 +31,29 @@ namespace EmployeeManagers
             sr.Close();
         }
 
-        public void Save(Employee empl, string fileName)
+        public void Add(Employee empl, string fileName)
         {
             StreamWriter sw;
             sw = File.AppendText(fileName);
             sw.WriteLine($"{empl.FirstName},{empl.LastName},{empl.Age}");
             sw.Close();
+        }
+
+        public void Save(EmployeeManager employeeManager, string fileName)
+        {
+            string empty = "";
+            File.WriteAllText(fileName, empty);
+
+            string line;
+            foreach (Employee element in employeeManager.ListEmpl)
+            {
+                line = $"{element.FirstName},{element.LastName},{element.Age}\n";
+                File.AppendAllText(fileName, line);
+            }
+
+            //sw = File.AppendText(fileName);
+            //sw.WriteLine($"{empl.FirstName},{empl.LastName},{empl.Age}");
+            //sw.Close();
         }
     }
 }
