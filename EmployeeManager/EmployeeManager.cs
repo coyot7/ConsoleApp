@@ -36,12 +36,5 @@ namespace EmployeeManagers
 
             return findedString;
         }
-
-        public void Delete(int indexLine)
-        {
-            var file = new List<string>(System.IO.File.ReadAllLines("text.txt"));
-            file.RemoveAt(indexLine);
-            File.WriteAllLines("text.txt", file.ToArray());
-        }
     }
 }

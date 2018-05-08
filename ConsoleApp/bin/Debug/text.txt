@@ -3,4 +3,3 @@ Leszek,Zimny,65
 Jablko,Banan,77
 Jezyk,Wolny,24
 Jan,Kowalski,11
-Anna,Kotek,23

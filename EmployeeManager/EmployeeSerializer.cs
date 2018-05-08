@@ -16,44 +16,56 @@ namespace EmployeeManagers
         {
             string line;
             char znak = ',';
-            StreamReader sr = new StreamReader(fileName);
-            while ((line = sr.ReadLine()) != null)
+            using (StreamReader sr = new StreamReader(fileName))
             {
-                string[] temp = line.Split(znak);
 
-                string firstName = temp[0];
-                string lastName = temp[1];
-                int age = int.Parse(temp[2]);
+                while ((line = sr.ReadLine()) != null)
+                {
+                    string[] temp = line.Split(znak);
 
-                Employee emp = new Employee(firstName, lastName, age);
-                emplManager.Add(emp);
+                    string firstName = temp[0];
+                    string lastName = temp[1];
+                    int age = int.Parse(temp[2]);
+
+                    Employee emp = new Employee(firstName, lastName, age);
+                    emplManager.Add(emp);
+                }
             }
-            sr.Close();
         }
 
         public void Add(Employee empl, string fileName)
         {
-            StreamWriter sw;
-            sw = File.AppendText(fileName);
-            sw.WriteLine($"{empl.FirstName},{empl.LastName},{empl.Age}");
-            sw.Close();
+            using (StreamWriter sw = File.AppendText(fileName))
+            {
+                sw.WriteLine($"{empl.FirstName},{empl.LastName},{empl.Age}");
+            }
         }
 
         public void Save(EmployeeManager employeeManager, string fileName)
         {
             string empty = "";
-            File.WriteAllText(fileName, empty);
+            try
+            {
+                File.WriteAllText(fileName, empty);
+            }
+            catch (Exception)
+            {
+                Console.WriteLine("Problem z zapisem do pliku");
+            }
 
             string line;
             foreach (Employee element in employeeManager.ListEmpl)
             {
                 line = $"{element.FirstName},{element.LastName},{element.Age}\n";
-                File.AppendAllText(fileName, line);
+                try
+                { 
+                    File.AppendAllText(fileName, line);
+                }
+                catch (Exception)
+                {
+                    Console.WriteLine("Problem z zapisem do pliku");
+                }
             }
-
-            //sw = File.AppendText(fileName);
-            //sw.WriteLine($"{empl.FirstName},{empl.LastName},{empl.Age}");
-            //sw.Close();
         }
     }
 }

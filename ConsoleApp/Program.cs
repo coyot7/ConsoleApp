@@ -91,7 +91,6 @@ namespace ConsoleApp
                             Console.WriteLine("Podaj index rekordu do usuniecia: ");
                             int index = int.Parse(Console.ReadLine());
 
-                            //emplManager.Delete(index - 1);
                             emplManager.ListEmpl.RemoveAt(index - 1);
                             es.Save(emplManager, fileName);
                         }
