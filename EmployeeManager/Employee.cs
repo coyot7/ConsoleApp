@@ -8,22 +8,20 @@ namespace EmployeeManagers
 {
     public class Employee
     {
-        private string firstName;
-        private string lastName;
-        private int age;
+        public string FirstName { get; private set; }
 
-        public string FirstName { get => firstName; private set => firstName = value; }
-        public string LastName { get => lastName; private set => lastName = value; }
-        public int Age { get => age; private set => age = value; }
+        public string LastName { get; private set; }
+
+        public int Age { get; private set; }
 
         public Employee()
         { }
 
         public Employee(string firstName, string lastName, int age)
         {
-            this.firstName = firstName;
-            this.lastName = lastName;
-            this.age = age;
+            FirstName = firstName;
+            LastName = lastName;
+            Age = age;
         }
     }
 }
