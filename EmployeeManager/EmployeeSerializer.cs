@@ -9,63 +9,20 @@ namespace EmployeeManagers
 {
     public class EmployeeSerializer
     {
-        public EmployeeSerializer()
-        { }
-
-        public void Load(ref EmployeeManager emplManager, string fileName)
+        public string Serialize(Employee employee)
         {
-            string line;
-            char znak = ',';
-            using (StreamReader sr = new StreamReader(fileName))
-            {
-
-                while ((line = sr.ReadLine()) != null)
-                {
-                    string[] temp = line.Split(znak);
-
-                    string firstName = temp[0];
-                    string lastName = temp[1];
-                    int age = int.Parse(temp[2]);
-
-                    Employee emp = new Employee(firstName, lastName, age);
-                    emplManager.Add(emp);
-                }
-            }
+            return $"{employee.FirstName},{employee.LastName},{employee.Age}\n";
         }
 
-        public void Add(Employee empl, string fileName)
+        public Employee Deserialize(string employeeSerialized)
         {
-            using (StreamWriter sw = File.AppendText(fileName))
-            {
-                sw.WriteLine($"{empl.FirstName},{empl.LastName},{empl.Age}");
-            }
-        }
+            string[] temp = employeeSerialized.Split(',');
 
-        public void Save(EmployeeManager employeeManager, string fileName)
-        {
-            string empty = "";
-            try
-            {
-                File.WriteAllText(fileName, empty);
-            }
-            catch (Exception)
-            {
-                Console.WriteLine("Problem z zapisem do pliku");
-            }
+            string firstName = temp[0];
+            string lastName = temp[1];
+            int age = int.Parse(temp[2]);
 
-            string line;
-            foreach (Employee element in employeeManager.ListEmpl)
-            {
-                line = $"{element.FirstName},{element.LastName},{element.Age}\n";
-                try
-                { 
-                    File.AppendAllText(fileName, line);
-                }
-                catch (Exception)
-                {
-                    Console.WriteLine("Problem z zapisem do pliku");
-                }
-            }
+            return new Employee(firstName, lastName, age);
         }
     }
 }

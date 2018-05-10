@@ -14,9 +14,6 @@ namespace EmployeeManagers
 
         public int Age { get; private set; }
 
-        public Employee()
-        { }
-
         public Employee(string firstName, string lastName, int age)
         {
             FirstName = firstName;

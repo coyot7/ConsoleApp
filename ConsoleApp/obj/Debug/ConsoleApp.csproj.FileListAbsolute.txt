@@ -8,3 +8,13 @@ C:\Users\Users\Desktop\ConsoleApp\ConsoleApp\obj\Debug\ConsoleApp.csproj.CoreCom
 C:\Users\Users\Desktop\ConsoleApp\ConsoleApp\obj\Debug\ConsoleApp.csproj.CopyComplete
 C:\Users\Users\Desktop\ConsoleApp\ConsoleApp\obj\Debug\ConsoleApp.exe
 C:\Users\Users\Desktop\ConsoleApp\ConsoleApp\obj\Debug\ConsoleApp.pdb
+C:\homework\ConsoleApp\ConsoleApp\bin\Debug\ConsoleApp.exe.config
+C:\homework\ConsoleApp\ConsoleApp\bin\Debug\ConsoleApp.exe
+C:\homework\ConsoleApp\ConsoleApp\bin\Debug\ConsoleApp.pdb
+C:\homework\ConsoleApp\ConsoleApp\bin\Debug\EmployeeManager.dll
+C:\homework\ConsoleApp\ConsoleApp\bin\Debug\EmployeeManager.pdb
+C:\homework\ConsoleApp\ConsoleApp\obj\Debug\ConsoleApp.csprojResolveAssemblyReference.cache
+C:\homework\ConsoleApp\ConsoleApp\obj\Debug\ConsoleApp.csproj.CoreCompileInputs.cache
+C:\homework\ConsoleApp\ConsoleApp\obj\Debug\ConsoleApp.csproj.CopyComplete
+C:\homework\ConsoleApp\ConsoleApp\obj\Debug\ConsoleApp.exe
+C:\homework\ConsoleApp\ConsoleApp\obj\Debug\ConsoleApp.pdb

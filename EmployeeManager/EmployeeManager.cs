@@ -9,32 +9,58 @@ namespace EmployeeManagers
 {
     public class EmployeeManager
     {
-        private List<Employee> listEmpl;
-        public List<Employee> ListEmpl { get => listEmpl; private set => listEmpl = value; }
+        private readonly string _fileName;
 
-
-        public EmployeeManager()
+        private readonly EmployeeSerializer _serializer;
+        
+        public EmployeeManager(EmployeeSerializer serializer, string fileName)
         {
-            listEmpl = new List<Employee>();
+            _fileName = fileName;
+            _serializer = serializer;
         }
 
-        public void Add(Employee item)
+        private List<Employee> Load()
         {
-            listEmpl.Add(item);
-        }
-
-        public EmployeeManager SearchString(string value)
-        {
-            EmployeeManager findedString = new EmployeeManager();
-            foreach (Employee elemnt in listEmpl)
+            using (StreamReader reader = new StreamReader(_fileName))
             {
-                if (elemnt.FirstName.Equals(value) || elemnt.LastName.Equals(value))
+                string line;
+                List<Employee> result = new List<Employee>();
+                while ((line = reader.ReadLine()) != null)
                 {
-                    findedString.Add(elemnt);
+                    result.Add(_serializer.Deserialize(line));
                 }
+
+                return result;
+            }
+        }
+
+        private void Save(List<Employee> employees)
+        {
+            StringBuilder builder = new StringBuilder();
+            foreach (Employee employee in employees)
+            {
+                string line = _serializer.Serialize(employee);
+                builder.AppendLine(line);
             }
 
-            return findedString;
+            File.WriteAllText(_fileName, builder.ToString());
         }
+
+        //private void Modify(Action<List<Employee>> modifyEmployees)
+        //{
+        //    var existing = Load();
+        //    modifyEmployees(existing);
+        //    Save(existing);
+        //}
+
+        public void Add(Employee empl)
+        {
+            var existing = Load();
+            existing.Add(empl);
+            Save(existing);
+            //Modify(employees => employees.Add(empl));
+        }
+
+        
     }
 }
