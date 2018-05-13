@@ -10,22 +10,17 @@ namespace ConsoleApp
 {
     public class Logger
     {
-        private EmployeeManager employeeManager;
-        public EmployeeManager EmployeeManager { get => employeeManager; private set => employeeManager = value; }
-
-        public Logger()
-        { }
-
-        public Logger(EmployeeManager employeeManager)
-        {
-            EmployeeManager = employeeManager;
-        }
-
+      //  private EmployeeManager employeeManager;
+      //  public EmployeeManager EmployeeManager { get => employeeManager; private set => employeeManager = value; }
 
         public void Display()
         {
+            EmployeeSerializer employeeSerializer = new EmployeeSerializer();
+            EmployeeManager employeeManager = new EmployeeManager(employeeSerializer, "text.txt");
+            List<Employee> employees = employeeManager.Load();
+
             int i = 0;
-            foreach (Employee element in EmployeeManager.ListEmpl)
+            foreach (Employee element in employees)
             {
                 i++;
                 Console.WriteLine($"{i}. {element.FirstName}, {element.LastName}, {element.Age}");

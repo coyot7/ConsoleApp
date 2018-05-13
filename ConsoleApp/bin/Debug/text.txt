@@ -1,5 +1,2 @@
+Grzegorz,Mucha,22
 Stefan,Batory,33
-Leszek,Zimny,65
-Jablko,Banan,77
-Jezyk,Wolny,24
-Jan,Kowalski,11

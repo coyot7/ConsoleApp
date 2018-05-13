@@ -13,10 +13,8 @@ namespace ConsoleApp
         {
             const string fileName = "text.txt";
 
-            EmployeeManager emplManager = new EmployeeManager();
-            
-            EmployeeSerializer es = new EmployeeSerializer();
-            es.Load(ref emplManager, fileName);
+            EmployeeSerializer employeeSerializer = new EmployeeSerializer();
+            EmployeeManager emplManager = new EmployeeManager(employeeSerializer, fileName);
 
             ConsoleKeyInfo cki;
             bool exit = false;
@@ -38,10 +36,7 @@ namespace ConsoleApp
                     case ConsoleKey.D1:
                         {
                             Console.Clear();
-                            emplManager = new EmployeeManager();
-
-                            es.Load(ref emplManager, fileName);
-                            Logger log = new Logger(emplManager);
+                            Logger log = new Logger();
                             log.Display();
                             Console.WriteLine("");
                             Console.WriteLine("Wcisnij dowolny klawisz: ");
@@ -61,61 +56,62 @@ namespace ConsoleApp
                             int age = int.Parse(Console.ReadLine());
 
                             Employee empl = new Employee(firstName, lastName, age);
-                            es.Add(empl, fileName);
+                            //es.Add(empl, fileName);
+                            emplManager.Add(empl);
                         }
                         break;
 
                     case ConsoleKey.D3:
                         {
-                            Console.Clear();
-                            Console.WriteLine("Podaj index rekordu do zmiany: ");
-                            int index = int.Parse(Console.ReadLine());
+                            //Console.Clear();
+                            //Console.WriteLine("Podaj index rekordu do zmiany: ");
+                            //int index = int.Parse(Console.ReadLine());
 
-                            Console.WriteLine("Podaj imie: ");
-                            string firstName = Console.ReadLine();
-                            Console.WriteLine("Podaj nazwisko: ");
-                            string lastName = Console.ReadLine();
-                            Console.WriteLine("Podaj wiek: ");
-                            int age = int.Parse(Console.ReadLine());
-                            Employee empl = new Employee(firstName, lastName, age);
+                            //Console.WriteLine("Podaj imie: ");
+                            //string firstName = Console.ReadLine();
+                            //Console.WriteLine("Podaj nazwisko: ");
+                            //string lastName = Console.ReadLine();
+                            //Console.WriteLine("Podaj wiek: ");
+                            //int age = int.Parse(Console.ReadLine());
+                            //Employee empl = new Employee(firstName, lastName, age);
 
-                            emplManager.ListEmpl.RemoveAt(index - 1);
-                            emplManager.ListEmpl.Insert(index - 1, empl);
-                            es.Save(emplManager, fileName);
+                            //emplManager.ListEmpl.RemoveAt(index - 1);
+                            //emplManager.ListEmpl.Insert(index - 1, empl);
+                            //es.Save(emplManager, fileName);
                         }
                         break;
 
                     case ConsoleKey.D4:
                         {
                             Console.Clear();
-                            Console.WriteLine("Podaj index rekordu do usuniecia: ");
-                            int index = int.Parse(Console.ReadLine());
+                            //Console.WriteLine("Podaj index rekordu do usuniecia: ");
+                            //int index = int.Parse(Console.ReadLine());
 
-                            emplManager.ListEmpl.RemoveAt(index - 1);
-                            es.Save(emplManager, fileName);
+                            //emplManager.ListEmpl.RemoveAt(index - 1);
+                            //es.Save(emplManager, fileName);
                         }
                         break;
 
                     case ConsoleKey.D5:
                         {
-                            Console.Clear();
-                            emplManager = new EmployeeManager();
-                            es.Load(ref emplManager, fileName);
-                            Console.WriteLine("Wprowadz szukany ciag: ");
-                            string searchString = Console.ReadLine();
+                            //Console.Clear();
+                            //emplManager = new EmployeeManager();
+                            //es.Load(ref emplManager, fileName);
+                            //Console.WriteLine("Wprowadz szukany ciag: ");
+                            //string searchString = Console.ReadLine();
 
-                            EmployeeManager serchingString;
-                            serchingString = emplManager.SearchString(searchString);
+                            //EmployeeManager serchingString;
+                            //serchingString = emplManager.SearchString(searchString);
 
-                            int i = 1;
-                            foreach (Employee element in serchingString.ListEmpl)
-                            {
-                                Console.WriteLine($"{i}. {element.FirstName}, {element.LastName}, {element.Age}");
-                                i++;
-                            }
-                            Console.WriteLine("");
-                            Console.WriteLine("Wcisnij dowolny klawisz: ");
-                            Console.ReadLine();
+                            //int i = 1;
+                            //foreach (Employee element in serchingString.ListEmpl)
+                            //{
+                            //    Console.WriteLine($"{i}. {element.FirstName}, {element.LastName}, {element.Age}");
+                            //    i++;
+                            //}
+                            //Console.WriteLine("");
+                            //Console.WriteLine("Wcisnij dowolny klawisz: ");
+                            //Console.ReadLine();
                         }
                         break;
 

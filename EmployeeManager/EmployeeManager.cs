@@ -10,7 +10,6 @@ namespace EmployeeManagers
     public class EmployeeManager
     {
         private readonly string _fileName;
-
         private readonly EmployeeSerializer _serializer;
         
         public EmployeeManager(EmployeeSerializer serializer, string fileName)
@@ -19,7 +18,7 @@ namespace EmployeeManagers
             _serializer = serializer;
         }
 
-        private List<Employee> Load()
+        public List<Employee> Load()
         {
             using (StreamReader reader = new StreamReader(_fileName))
             {
@@ -46,19 +45,16 @@ namespace EmployeeManagers
             File.WriteAllText(_fileName, builder.ToString());
         }
 
-        //private void Modify(Action<List<Employee>> modifyEmployees)
-        //{
-        //    var existing = Load();
-        //    modifyEmployees(existing);
-        //    Save(existing);
-        //}
+        private void Modify(Action<List<Employee>> modifyEmployees)
+        {
+            var existing = Load();
+            modifyEmployees(existing);
+            Save(existing);
+        }
 
         public void Add(Employee empl)
         {
-            var existing = Load();
-            existing.Add(empl);
-            Save(existing);
-            //Modify(employees => employees.Add(empl));
+            Modify(employees => employees.Add(empl));
         }
 
         
