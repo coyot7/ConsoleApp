@@ -70,6 +70,11 @@ namespace EmployeeManagers
             Modify(employess => employess.Insert(index, empl));
         }
 
+        public void Delete(int index)
+        {
+            Modify(employees => employees.RemoveAt(index));
+        }
+
 
     }
 }

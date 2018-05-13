@@ -81,11 +81,10 @@ namespace ConsoleApp
                     case ConsoleKey.D4:
                         {
                             Console.Clear();
-                            //Console.WriteLine("Podaj index rekordu do usuniecia: ");
-                            //int index = int.Parse(Console.ReadLine());
+                            Console.WriteLine("Podaj index rekordu do usuniecia: ");
+                            int index = int.Parse(Console.ReadLine());
 
-                            //emplManager.ListEmpl.RemoveAt(index - 1);
-                            //es.Save(emplManager, fileName);
+                            emplManager.Delete(index - 1);
                         }
                         break;
 
