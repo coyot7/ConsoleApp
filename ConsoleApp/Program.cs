@@ -90,24 +90,13 @@ namespace ConsoleApp
 
                     case ConsoleKey.D5:
                         {
-                            //Console.Clear();
-                            //emplManager = new EmployeeManager();
-                            //es.Load(ref emplManager, fileName);
-                            //Console.WriteLine("Wprowadz szukany ciag: ");
-                            //string searchString = Console.ReadLine();
+                            Console.Clear();
+                            Console.WriteLine("Wprowadz szukany ciag: ");
+                            string searchString = Console.ReadLine();
+                            List<Employee> finded = emplManager.FindEmployee(searchString);
 
-                            //EmployeeManager serchingString;
-                            //serchingString = emplManager.SearchString(searchString);
-
-                            //int i = 1;
-                            //foreach (Employee element in serchingString.ListEmpl)
-                            //{
-                            //    Console.WriteLine($"{i}. {element.FirstName}, {element.LastName}, {element.Age}");
-                            //    i++;
-                            //}
-                            //Console.WriteLine("");
-                            //Console.WriteLine("Wcisnij dowolny klawisz: ");
-                            //Console.ReadLine();
+                            Logger log = new Logger();
+                            log.DisplayList(finded);
                         }
                         break;
 

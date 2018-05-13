@@ -11,7 +11,8 @@ namespace EmployeeManagers
     {
         private readonly string _fileName;
         private readonly EmployeeSerializer _serializer;
-        
+        public string FindEmployeeString { get; set; }
+
         public EmployeeManager(EmployeeSerializer serializer, string fileName)
         {
             _fileName = fileName;
@@ -59,6 +60,13 @@ namespace EmployeeManagers
             Save(existing);
         }
 
+        private List<Employee> FindList(Func<List<Employee>, List<Employee>> findEmployees)
+        {
+            var existing = Load();
+            List<Employee> temp = findEmployees(existing);
+            return temp;
+        }
+
         public void Add(Employee empl)
         {
             Modify(employees => employees.Add(empl));
@@ -75,6 +83,24 @@ namespace EmployeeManagers
             Modify(employees => employees.RemoveAt(index));
         }
 
+        public List<Employee> FindEmployee(string value)
+        {
+            FindEmployeeString = value;
+            List<Employee> findedList = FindList(empl => empl.FindAll(Find));
 
+            return findedList;
+        }
+
+        private bool Find(Employee value)
+        {
+            if (value.FirstName == FindEmployeeString || value.LastName == FindEmployeeString)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
     }
 }

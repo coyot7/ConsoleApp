@@ -23,5 +23,18 @@ namespace ConsoleApp
                 Console.WriteLine($"{i}. {element.FirstName}, {element.LastName}, {element.Age}");
             }
         }
+
+        public void DisplayList(List<Employee> list)
+        {
+            int i = 1;
+            foreach (Employee element in list)
+            {
+                Console.WriteLine($"{i}. {element.FirstName}, {element.LastName}, {element.Age}");
+                i++;
+            }
+            Console.WriteLine("");
+            Console.WriteLine("Wcisnij dowolny klawisz: ");
+            Console.ReadLine();
+        }
     }
 }
