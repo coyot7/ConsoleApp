@@ -10,9 +10,6 @@ namespace ConsoleApp
 {
     public class Logger
     {
-      //  private EmployeeManager employeeManager;
-      //  public EmployeeManager EmployeeManager { get => employeeManager; private set => employeeManager = value; }
-
         public void Display()
         {
             EmployeeSerializer employeeSerializer = new EmployeeSerializer();

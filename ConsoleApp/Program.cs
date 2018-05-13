@@ -56,28 +56,25 @@ namespace ConsoleApp
                             int age = int.Parse(Console.ReadLine());
 
                             Employee empl = new Employee(firstName, lastName, age);
-                            //es.Add(empl, fileName);
                             emplManager.Add(empl);
                         }
                         break;
 
                     case ConsoleKey.D3:
                         {
-                            //Console.Clear();
-                            //Console.WriteLine("Podaj index rekordu do zmiany: ");
-                            //int index = int.Parse(Console.ReadLine());
+                            Console.Clear();
+                            Console.WriteLine("Podaj index rekordu do zmiany: ");
+                            int index = int.Parse(Console.ReadLine());
 
-                            //Console.WriteLine("Podaj imie: ");
-                            //string firstName = Console.ReadLine();
-                            //Console.WriteLine("Podaj nazwisko: ");
-                            //string lastName = Console.ReadLine();
-                            //Console.WriteLine("Podaj wiek: ");
-                            //int age = int.Parse(Console.ReadLine());
-                            //Employee empl = new Employee(firstName, lastName, age);
-
-                            //emplManager.ListEmpl.RemoveAt(index - 1);
-                            //emplManager.ListEmpl.Insert(index - 1, empl);
-                            //es.Save(emplManager, fileName);
+                            Console.WriteLine("Podaj imie: ");
+                            string firstName = Console.ReadLine();
+                            Console.WriteLine("Podaj nazwisko: ");
+                            string lastName = Console.ReadLine();
+                            Console.WriteLine("Podaj wiek: ");
+                            int age = int.Parse(Console.ReadLine());
+                            
+                            Employee employ = new Employee(firstName, lastName, age);
+                            emplManager.Change(employ, index - 1);
                         }
                         break;
 

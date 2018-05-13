@@ -64,6 +64,12 @@ namespace EmployeeManagers
             Modify(employees => employees.Add(empl));
         }
 
-        
+        public void Change(Employee empl, int index)
+        {
+            Modify(employees => employees.RemoveAt(index));
+            Modify(employess => employess.Insert(index, empl));
+        }
+
+
     }
 }
