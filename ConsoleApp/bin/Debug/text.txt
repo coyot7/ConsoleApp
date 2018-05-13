@@ -1,2 +1,3 @@
-Grzegorz,Mucha,22
-Stefan,Batory,33
+A,a,1
+ss,ss,2
+ww,w,3

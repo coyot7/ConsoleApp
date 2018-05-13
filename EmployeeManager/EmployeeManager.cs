@@ -26,7 +26,14 @@ namespace EmployeeManagers
                 List<Employee> result = new List<Employee>();
                 while ((line = reader.ReadLine()) != null)
                 {
-                    result.Add(_serializer.Deserialize(line));
+                    if (_serializer.Deserialize(line) != null)
+                    {
+                        result.Add(_serializer.Deserialize(line));
+                    }
+                    else
+                    {
+                        break;
+                    }
                 }
 
                 return result;
