@@ -1,17 +1,15 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
-using System.Threading.Tasks;
-using System.IO;
 
-namespace EmployeeManagers
+namespace EmployeeManager
 {
     public class EmployeeManager
     {
         private readonly string _fileName;
         private readonly EmployeeSerializer _serializer;
-        public string FindEmployeeString { get; set; }
 
         public EmployeeManager(EmployeeSerializer serializer, string fileName)
         {
@@ -19,7 +17,7 @@ namespace EmployeeManagers
             _serializer = serializer;
         }
 
-        public List<Employee> Load()
+        private List<Employee> Load()
         {
             using (StreamReader reader = new StreamReader(_fileName))
             {
@@ -60,13 +58,6 @@ namespace EmployeeManagers
             Save(existing);
         }
 
-        private List<Employee> FindList(Func<List<Employee>, List<Employee>> findEmployees)
-        {
-            var existing = Load();
-            List<Employee> temp = findEmployees(existing);
-            return temp;
-        }
-
         public void Add(Employee empl)
         {
             Modify(employees => employees.Add(empl));
@@ -74,8 +65,11 @@ namespace EmployeeManagers
 
         public void Change(Employee empl, int index)
         {
-            Modify(employees => employees.RemoveAt(index));
-            Modify(employess => employess.Insert(index, empl));
+            Modify(employees =>
+            {
+                employees.RemoveAt(index);
+                employees.Insert(index, empl);
+            });
         }
 
         public void Delete(int index)
@@ -83,24 +77,17 @@ namespace EmployeeManagers
             Modify(employees => employees.RemoveAt(index));
         }
 
-        public List<Employee> FindEmployee(string value)
+        public IEnumerable<Employee> FindEmployees(string firstOrLastName)
         {
-            FindEmployeeString = value;
-            List<Employee> findedList = FindList(empl => empl.FindAll(Find));
-
-            return findedList;
+            var employees = Load();
+            return employees.Where(
+                e => e.FirstName == firstOrLastName ||
+                     e.LastName == firstOrLastName);
         }
 
-        private bool Find(Employee value)
+        public IEnumerable<Employee> GetAll()
         {
-            if (value.FirstName == FindEmployeeString || value.LastName == FindEmployeeString)
-            {
-                return true;
-            }
-            else
-            {
-                return false;
-            }
+            return Load();
         }
     }
 }

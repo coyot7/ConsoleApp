@@ -1,11 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.IO;
-
-namespace EmployeeManagers
+﻿
+namespace EmployeeManager
 {
     public class EmployeeSerializer
     {
@@ -18,18 +12,11 @@ namespace EmployeeManagers
         {
             string[] temp = employeeSerialized.Split(',');
 
-            try
-            {
-                string firstName = temp[0];
-                string lastName = temp[1];
-                int age = int.Parse(temp[2]);
+            string firstName = temp[0];
+            string lastName = temp[1];
+            int age = int.Parse(temp[2]);
 
-                return new Employee(firstName, lastName, age);
-            }
-            catch (IndexOutOfRangeException)
-            {
-                return null;
-            }
+            return new Employee(firstName, lastName, age);
         }
     }
 }
