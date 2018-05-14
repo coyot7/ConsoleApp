@@ -7,6 +7,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ConsoleApp", "ConsoleApp\Co
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EmployeeManagers", "EmployeeManager\EmployeeManagers.csproj", "{F2A72A5D-13E7-41C8-B5F4-E63F7337E6EE}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EmployeeManagerTests", "EmployeeManagerTests\EmployeeManagerTests.csproj", "{F144C16B-5AA5-422A-B038-1EC26D6B6F32}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tests", "Tests", "{A2EE11AA-2174-4179-AF5E-D72127B194C9}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,9 +25,16 @@ Global
 		{F2A72A5D-13E7-41C8-B5F4-E63F7337E6EE}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{F2A72A5D-13E7-41C8-B5F4-E63F7337E6EE}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{F2A72A5D-13E7-41C8-B5F4-E63F7337E6EE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F144C16B-5AA5-422A-B038-1EC26D6B6F32}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F144C16B-5AA5-422A-B038-1EC26D6B6F32}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F144C16B-5AA5-422A-B038-1EC26D6B6F32}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F144C16B-5AA5-422A-B038-1EC26D6B6F32}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{F144C16B-5AA5-422A-B038-1EC26D6B6F32} = {A2EE11AA-2174-4179-AF5E-D72127B194C9}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {95F23046-6D0D-441C-8862-8B605C999361}

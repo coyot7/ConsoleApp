@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace EmployeeManager
 {
-    public class Employee
+    public class Employee 
     {
         public string FirstName { get; private set; }
 
@@ -19,6 +19,23 @@ namespace EmployeeManager
             FirstName = firstName;
             LastName = lastName;
             Age = age;
+        }
+
+        public override bool Equals(object obj)
+        {
+            if (ReferenceEquals(null, obj)) return false;
+            if (ReferenceEquals(this, obj)) return true;
+            if (obj.GetType() != this.GetType()) return false;
+
+            Employee e = (Employee) obj;
+            return e.Age == this.Age &&
+                   e.FirstName == this.FirstName &&
+                   e.LastName == this.LastName;
+        }
+
+        public override int GetHashCode()
+        {
+            return Age.GetHashCode() + FirstName.GetHashCode() + LastName.GetHashCode();
         }
     }
 }
