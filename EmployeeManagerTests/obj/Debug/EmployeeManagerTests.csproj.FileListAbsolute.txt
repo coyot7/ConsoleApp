@@ -1,2 +1,16 @@
 C:\Users\Users\Desktop\ConsoleApp\EmployeeManagerTests\obj\Debug\EmployeeManagerTests.csprojResolveAssemblyReference.cache
 C:\Users\Users\Desktop\ConsoleApp\EmployeeManagerTests\obj\Debug\EmployeeManagerTests.csproj.CoreCompileInputs.cache
+C:\Users\Users\Desktop\ConsoleApp\EmployeeManagerTests\bin\Debug\Microsoft.VisualStudio.TestPlatform.MSTest.TestAdapter.dll
+C:\Users\Users\Desktop\ConsoleApp\EmployeeManagerTests\bin\Debug\Microsoft.VisualStudio.TestPlatform.MSTestAdapter.PlatformServices.Interface.dll
+C:\Users\Users\Desktop\ConsoleApp\EmployeeManagerTests\bin\Debug\Microsoft.VisualStudio.TestPlatform.MSTestAdapter.PlatformServices.dll
+C:\Users\Users\Desktop\ConsoleApp\EmployeeManagerTests\bin\Debug\EmployeeManagerTests.dll
+C:\Users\Users\Desktop\ConsoleApp\EmployeeManagerTests\bin\Debug\EmployeeManagerTests.pdb
+C:\Users\Users\Desktop\ConsoleApp\EmployeeManagerTests\bin\Debug\EmployeeManager.dll
+C:\Users\Users\Desktop\ConsoleApp\EmployeeManagerTests\bin\Debug\Microsoft.VisualStudio.TestPlatform.TestFramework.dll
+C:\Users\Users\Desktop\ConsoleApp\EmployeeManagerTests\bin\Debug\Microsoft.VisualStudio.TestPlatform.TestFramework.Extensions.dll
+C:\Users\Users\Desktop\ConsoleApp\EmployeeManagerTests\bin\Debug\EmployeeManager.pdb
+C:\Users\Users\Desktop\ConsoleApp\EmployeeManagerTests\bin\Debug\Microsoft.VisualStudio.TestPlatform.TestFramework.xml
+C:\Users\Users\Desktop\ConsoleApp\EmployeeManagerTests\bin\Debug\Microsoft.VisualStudio.TestPlatform.TestFramework.Extensions.xml
+C:\Users\Users\Desktop\ConsoleApp\EmployeeManagerTests\obj\Debug\EmployeeManagerTests.csproj.CopyComplete
+C:\Users\Users\Desktop\ConsoleApp\EmployeeManagerTests\obj\Debug\EmployeeManagerTests.dll
+C:\Users\Users\Desktop\ConsoleApp\EmployeeManagerTests\obj\Debug\EmployeeManagerTests.pdb

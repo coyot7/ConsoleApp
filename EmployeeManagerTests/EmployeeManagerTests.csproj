@@ -49,6 +49,8 @@
     <Reference Include="System.Core" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="EmployeeManagerTests.cs" />
+    <Compile Include="EmployeeProviderTests.cs" />
     <Compile Include="EmployeeSerializerTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

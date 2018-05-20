@@ -11,9 +11,9 @@ namespace EmployeeManagers
     {
         
         public string FindEmployeeString { get; set; }
-        private readonly EmployeeProvider _employeeProvider;
+        private readonly IEmployeeProvider _employeeProvider;
 
-        public EmployeeManager(EmployeeProvider employeeProvider)
+        public EmployeeManager(IEmployeeProvider employeeProvider)
         {
             _employeeProvider = employeeProvider;
         }

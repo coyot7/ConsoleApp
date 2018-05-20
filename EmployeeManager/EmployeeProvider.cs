@@ -7,7 +7,7 @@ using System.IO;
 
 namespace EmployeeManagers
 {
-    public class EmployeeProvider
+    public class EmployeeProvider : IEmployeeProvider
     {
         private readonly string _fileName;
 
