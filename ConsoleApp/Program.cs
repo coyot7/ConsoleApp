@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using EmployeeManager;
+using EmployeeManagers;
 
 namespace ConsoleApp
 {
@@ -13,8 +13,8 @@ namespace ConsoleApp
         {
             const string fileName = "text.txt";
 
-            EmployeeSerializer employeeSerializer = new EmployeeSerializer();
-            var emplManager = new EmployeeManager.EmployeeManager(employeeSerializer, fileName);
+            EmployeeProvider emplProvider = new EmployeeProvider(fileName);
+            EmployeeManager emplManager = new EmployeeManager(emplProvider);
 
             ConsoleKeyInfo cki;
             bool exit = false;
@@ -93,13 +93,10 @@ namespace ConsoleApp
                             Console.Clear();
                             Console.WriteLine("Wprowadz szukany ciag: ");
                             string searchString = Console.ReadLine();
-                            var found = emplManager.FindEmployees(searchString);
+                            List<Employee> finded = emplManager.FindEmployee(searchString);
 
                             Logger log = new Logger();
-                            log.DisplayList(found.ToList());
-                            Console.WriteLine("");
-                            Console.WriteLine("Wcisnij dowolny klawisz: ");
-                            Console.ReadLine();
+                            log.DisplayList(finded);
                         }
                         break;
 

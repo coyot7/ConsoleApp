@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.IO;
-using EmployeeManager;
+using EmployeeManagers;
 
 namespace ConsoleApp
 {
@@ -12,11 +12,15 @@ namespace ConsoleApp
     {
         public void Display()
         {
-            EmployeeSerializer employeeSerializer = new EmployeeSerializer();
-            var employeeManager = new EmployeeManager.EmployeeManager(employeeSerializer, "text.txt");
-            var employees = employeeManager.GetAll().ToList();
+            EmployeeProvider employeeProvider = new EmployeeProvider("text.txt");
+            List<Employee> employees = employeeProvider.Load();
 
-            DisplayList(employees);
+            int i = 0;
+            foreach (Employee element in employees)
+            {
+                i++;
+                Console.WriteLine($"{i}. {element.FirstName}, {element.LastName}, {element.Age}");
+            }
         }
 
         public void DisplayList(List<Employee> list)
@@ -27,6 +31,9 @@ namespace ConsoleApp
                 Console.WriteLine($"{i}. {element.FirstName}, {element.LastName}, {element.Age}");
                 i++;
             }
+            Console.WriteLine("");
+            Console.WriteLine("Wcisnij dowolny klawisz: ");
+            Console.ReadLine();
         }
     }
 }

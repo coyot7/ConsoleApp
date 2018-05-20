@@ -1,0 +1,2 @@
+C:\Users\Users\Desktop\ConsoleApp\EmployeeManagerTests\obj\Debug\EmployeeManagerTests.csprojResolveAssemblyReference.cache
+C:\Users\Users\Desktop\ConsoleApp\EmployeeManagerTests\obj\Debug\EmployeeManagerTests.csproj.CoreCompileInputs.cache

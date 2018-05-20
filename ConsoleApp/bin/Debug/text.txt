@@ -1,4 +1,4 @@
 A,a,1
-ww,w,3
+Piotr,Piotr,2
 Grzegorz,Tomiak,33
 Tomiak,Grzegorz,33
