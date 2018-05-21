@@ -1,8 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Configuration;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using EmployeeManager;
 using EmployeeManagers;
 
 namespace ConsoleApp
@@ -11,10 +13,13 @@ namespace ConsoleApp
     {
         static void Main(string[] args)
         {
-            const string fileName = "text.txt";
+            EmployeeProvider emplProvider = new EmployeeProvider(
+                char.Parse(ConfigurationManager.AppSettings["separatorChar"]) == ','
+                    ? (IEmployeeSerializer) new CommaSeparatedEmployeeSerializer()
+                    : (IEmployeeSerializer) new SemicolonSeparatedEmployeeSerializer(),
+                ConfigurationManager.AppSettings["filePath"]);
 
-            EmployeeProvider emplProvider = new EmployeeProvider(fileName);
-            EmployeeManager emplManager = new EmployeeManager(emplProvider);
+            var emplManager = new EmployeeManager.EmployeeManager(emplProvider);
 
             ConsoleKeyInfo cki;
             bool exit = false;
@@ -37,7 +42,7 @@ namespace ConsoleApp
                         {
                             Console.Clear();
                             Logger log = new Logger();
-                            log.Display();
+                            log.DisplayList(emplManager.GetAllEmployees());
                             Console.WriteLine("");
                             Console.WriteLine("Wcisnij dowolny klawisz: ");
                             Console.ReadLine();
@@ -97,6 +102,9 @@ namespace ConsoleApp
 
                             Logger log = new Logger();
                             log.DisplayList(finded);
+                            Console.WriteLine("");
+                            Console.WriteLine("Wcisnij dowolny klawisz: ");
+                            Console.ReadLine();
                         }
                         break;
 

@@ -1,18 +1,21 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
+﻿using System.Collections.Generic;
 using System.Text;
-using System.Threading.Tasks;
 using System.IO;
+using EmployeeManagers;
 
-namespace EmployeeManagers
+namespace EmployeeManager
 {
     public class EmployeeProvider : IEmployeeProvider
     {
+        private readonly IEmployeeSerializer _employeeSerializer;
+
         private readonly string _fileName;
 
-        public EmployeeProvider(string fileName)
+        public EmployeeProvider(
+            IEmployeeSerializer employeeSerializer,
+            string fileName)
         {
+            _employeeSerializer = employeeSerializer;
             _fileName = fileName;
         }
 
@@ -24,9 +27,9 @@ namespace EmployeeManagers
                 List<Employee> result = new List<Employee>();
                 while ((line = reader.ReadLine()) != null)
                 {
-                    if (Deserialize(line) != null)
+                    if (_employeeSerializer.Deserialize(line) != null)
                     {
-                        result.Add(Deserialize(line));
+                        result.Add(_employeeSerializer.Deserialize(line));
                     }
                     else
                     {
@@ -43,34 +46,11 @@ namespace EmployeeManagers
             StringBuilder builder = new StringBuilder();
             foreach (Employee employee in employees)
             {
-                string line = Serialize(employee);
+                string line = _employeeSerializer.Serialize(employee);
                 builder.AppendLine(line);
             }
 
             File.WriteAllText(_fileName, builder.ToString());
-        }
-
-        public string Serialize(Employee employee)
-        {
-            return $"{employee.FirstName},{employee.LastName},{employee.Age}";
-        }
-
-        public Employee Deserialize(string employeeSerialized)
-        {
-            string[] temp = employeeSerialized.Split(',');
-
-            try
-            {
-                string firstName = temp[0];
-                string lastName = temp[1];
-                int age = int.Parse(temp[2]);
-
-                return new Employee(firstName, lastName, age);
-            }
-            catch (IndexOutOfRangeException)
-            {
-                return null;
-            }
         }
     }
 }

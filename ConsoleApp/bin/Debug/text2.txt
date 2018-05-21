@@ -1,0 +1,4 @@
+A;a;1
+Piotr;Piotr;2
+Grzegorz;Tomiak;33
+Ala;Makota;12

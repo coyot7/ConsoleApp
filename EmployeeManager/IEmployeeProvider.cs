@@ -5,13 +5,12 @@ using System.Text;
 using System.Threading.Tasks;
 using EmployeeManagers;
 
-namespace EmployeeManagers
+namespace EmployeeManager
 {
     public interface IEmployeeProvider
     {
         List<Employee> Load();
+
         void Save(List<Employee> employees);
-        string Serialize(Employee employee);
-        Employee Deserialize(string employeeSerialized);
     }
 }

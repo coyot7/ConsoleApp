@@ -2,50 +2,35 @@
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using EmployeeManagers;
 using System.Collections.Generic;
+using EmployeeManager;
+using EmployeeManagerTests.Helpers;
 
 namespace EmployeeManagerTests
 {
     [TestClass]
     public class EmployeeManagerTests
     {
-
-        public string FindEmployeeString { get; set; }
-        private readonly IEmployeeProvider _employeeProvider;
-
-        public EmployeeManagerTests()
-        {
-            EmployeeProviderTests employeeProviderTests = new EmployeeProviderTests();
-            _employeeProvider = employeeProviderTests;
-        }
-
-        private void Modify(Action<List<Employee>> modifyEmployees)
-        {
-            var existing = _employeeProvider.Load();
-            modifyEmployees(existing);
-            _employeeProvider.Save(existing);
-        }
-
-
         [TestMethod]
-        public void Add()
+        public void NewlyAddedEmploeeIsSavedToProvider()
         {
-            Employee empl = new Employee("Test", "Test", 10);
-            Modify(employees => employees.Add(empl));
-            var existing = _employeeProvider.Load();
-            Assert.AreEqual(empl, existing.Find(x => x.FirstName == "Test"));
+            // arrange
+            var newEmployee = new Employee("Krzysiek", "Kowalski", 30);
+            List<Employee> savedList = null;
+            var providerMock = new EmployeeProviderMock(
+                toLoad: new List<Employee>(),
+                saveCallback: list =>
+                {
+                    savedList = list;
+                });
+            var manager = new EmployeeManager.EmployeeManager(providerMock);
+
+            // act
+            manager.Add(newEmployee);
+
+            // assert
+            Assert.AreEqual(savedList[0], newEmployee);
         }
 
-        [TestMethod]
-        public void Change()
-        {
-            int index = 1;
-            Employee empl = new Employee("TestCh", "TestCh", 10);
-
-            Modify(employees => employees.RemoveAt(index));
-            Modify(employess => employess.Insert(index, empl));
-
-            var existing = _employeeProvider.Load();
-            Assert.AreEqual(empl, existing.Find(x => x.FirstName == "TestCh"));
-        }
+        // TODO: zaimplementować więcej testów na reszte metod
     }
 }

@@ -1,4 +1,5 @@
 ﻿using System;
+using EmployeeManager;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using EmployeeManagers;
 
@@ -11,7 +12,7 @@ namespace EmployeeManagerTests
         public void EmployeeSerializedCorreclty()
         {
             // arrange
-            var serializer = new EmployeeProvider("");
+            var serializer = new CommaSeparatedEmployeeSerializer();
 
             // act
             var result = serializer.Serialize(new Employee("Slawek", "Nidecki", 33));
@@ -24,7 +25,7 @@ namespace EmployeeManagerTests
         public void EmployeeDeserializedCorreclty()
         {
             // arrange
-            var serializer = new EmployeeProvider("");
+            var serializer = new CommaSeparatedEmployeeSerializer();
 
             // act
             var result = serializer.Deserialize("Slawek,Nidecki,33");

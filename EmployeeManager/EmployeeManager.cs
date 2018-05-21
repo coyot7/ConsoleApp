@@ -4,20 +4,18 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.IO;
+using EmployeeManagers;
 
-namespace EmployeeManagers
+namespace EmployeeManager
 {
     public class EmployeeManager
     {
-        
-        public string FindEmployeeString { get; set; }
         private readonly IEmployeeProvider _employeeProvider;
 
         public EmployeeManager(IEmployeeProvider employeeProvider)
         {
             _employeeProvider = employeeProvider;
         }
-
 
         private void Modify(Action<List<Employee>> modifyEmployees)
         {
@@ -26,22 +24,23 @@ namespace EmployeeManagers
             _employeeProvider.Save(existing);
         }
 
-        private List<Employee> FindList(Func<List<Employee>, List<Employee>> findEmployees)
-        {
-            var existing = _employeeProvider.Load();
-            List<Employee> temp = findEmployees(existing);
-            return temp;
-        }
-
         public void Add(Employee empl)
         {
             Modify(employees => employees.Add(empl));
         }
 
+        public List<Employee> GetAllEmployees()
+        {
+            return _employeeProvider.Load();
+        }
+
         public void Change(Employee empl, int index)
         {
-            Modify(employees => employees.RemoveAt(index));
-            Modify(employess => employess.Insert(index, empl));
+            Modify(employees =>
+            {
+                employees.RemoveAt(index);
+                employees.Insert(index, empl);
+            });
         }
 
         public void Delete(int index)
@@ -51,22 +50,11 @@ namespace EmployeeManagers
 
         public List<Employee> FindEmployee(string value)
         {
-            FindEmployeeString = value;
-            List<Employee> findedList = FindList(empl => empl.FindAll(Find));
+            var existing = _employeeProvider.Load();
 
-            return findedList;
-        }
-
-        private bool Find(Employee value)
-        {
-            if (value.FirstName == FindEmployeeString || value.LastName == FindEmployeeString)
-            {
-                return true;
-            }
-            else
-            {
-                return false;
-            }
+            return existing.FindAll(
+                e => e.FirstName == value ||
+                     e.LastName == value);
         }
     }
 }
